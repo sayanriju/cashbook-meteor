@@ -1,0 +1,46 @@
+#ledgerForm {
+  text-align: center;
+  margin: 0 auto;
+  border:1px solid #D1CCCC;
+  padding:10px;
+}
+#ledgerTable {
+  border-collapse: collapse;
+  margin: 1em auto;
+}
+#ledgerTable,
+#ledgerTable td,
+#ledgerTable th {
+  border: 1px solid black;
+}
+#ledgerTable th:not(.separator-col),
+#ledgerTable td:not(.separator-col) {
+  padding: 7px 15px;
+}
+#ledgerTable th {
+  background: #074800;
+  font-weight: bolder;
+  color:#f8dede;
+  border-color: white;
+}
+#ledgerTable tr:nth-child(even) {
+  background-color: #e2ffdf;
+}
+#ledgerTable tr:nth-child(odd) {
+  background-color: #f5fff5;
+}
+#ledgerTable tr:hover{
+  background: #b0dd90;
+/*
+  font-weight: bold;
+  font-size:93%;
+*/
+}
+.particulars-col{
+  min-width:250px;;
+}
+.ref-col {
+  max-width: 37px;
+  padding: 0px !important;
+  text-align: center;
+}

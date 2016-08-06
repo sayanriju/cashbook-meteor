@@ -1,0 +1,6 @@
+<template name="navbar">
+	{{#each navLinks}}
+	<h1 class="navlink {{#if active}}active{{/if}}"><a href="{{url}}">{{text}}</a></h1>
+	{{/each}}
+  <!-- <span class="loginButtons">{{> loginButtons}}</span> -->
+</template>

@@ -1,0 +1,75 @@
+<template name="ledgerChart">
+{{#with tableData}}
+  <div style="text-align: center; margin:1em auto;">
+    <h2 style="color:green;">{{ledgerAcName}} A/c</h2>
+  </div>
+  <table id="ledgerTable" border="1" style="width:90%;margin:1em auto;">
+    <tr>
+      <th colspan="4">
+        <span style="float:left;font-style:italic;font-size:100%;">Debits</span>
+      </th>
+      <th class="separator-col"></th>
+      <th colspan="4">
+        <span style="float:right;font-style:italic;font-size:100%;">Credits</span>
+      </th>
+    </tr>
+    <tr style="color:#034e03;">
+      <th class="date-col">Date</th>
+      <th class="particulars-col">Particulars</th>
+      <th class="amounts-col">Amount (₹)</th>
+      <th class="separator-col"></th>
+      <th class="date-col">Date</th>
+      <th class="particulars-col">Particulars</th>
+      <th class="amounts-col">Amount (₹)</th>
+    </tr>
+
+    {{#each trows}}
+      <tr>
+        {{> ledgerRowTemplate}}
+      </tr>
+    {{/each}}
+
+    <tr>
+      <th class="date-col"> </th>
+      <th class="particulars-col"> </th>
+      <th class="amounts-col">{{colTotals.debit}}</th>
+      <th class="separator-col"></th>
+      <th class="date-col"> </th>
+      <th class="particulars-col"> </th>
+      <th class="amounts-col">{{colTotals.credit}}</th>
+    </tr>
+
+  </table>
+
+  {{> ledgerBalance}}
+
+{{/with}}
+</template>
+
+<template name="ledgerRowTemplate">
+  <td>{{debit.entryDate}}</td>
+  <td>
+    {{#if debit.account}}<i>To&nbsp;&nbsp;</i>{{/if}} <b>{{debit.account}}</b>
+    {{#if debit.account}}<i>&nbsp;A/c</i>{{/if}}
+    {{#if debit.contra}}<b class="contra-label" style="">CONTRA</b>{{/if}}
+    {{#if debit.narration}}<br/><span class="small">({{debit.narration}})</span>{{/if}}
+  </td>
+  <td>{{debit.amount}}</td>
+
+  <td class="separator-col"></td>
+
+  <td>{{credit.entryDate}}</td>
+  <td>
+    {{#if credit.account}}<i>By&nbsp;&nbsp;</i>{{/if}}<b>{{credit.account}}</b>
+    {{#if credit.account}}<i>&nbsp;A/c</i>{{/if}}
+    {{#if credit.contra}}<b class="contra-label" style="">CONTRA</b>{{/if}}
+    {{#if credit.narration}}<br/><span class="small">({{credit.narration}})</span>{{/if}}
+  </td>
+  <td>{{credit.amount}}</td>
+</template>
+
+<template name="ledgerBalance">
+  <h3 style="text-align:center; margin:0.5em auto;">
+    A/c Balance (₹): &nbsp;&nbsp;&nbsp; <span class="big">{{balance.amount}} <i>{{#if balance.isDebit}}Dr.{{else}}Cr.{{/if}}</i></span>
+  </h3>
+</template>

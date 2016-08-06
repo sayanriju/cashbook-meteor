@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if [ $# -eq 0 ]; then
+  echo "ERROR: Supply Name of Your Feature"
+else
+  feature = "$1"
+fi
+
+clientMsg = "# This Code runs ONLY on the Client"
+serverMsg = "# This Code runs ONLY on the Server"
+libMsg = "# This Code runs BOTH on the Client and the Server"
+
+echo "$feature"

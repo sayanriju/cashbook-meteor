@@ -1,0 +1,45 @@
+#acAddForm label{
+  /*display:inline-block;*/
+  margin-left: 1em;
+  margin-right: 0em;
+}
+#acTable {
+  border-collapse: collapse;
+  margin: 1em auto;
+}
+#acTable,
+#acTable td,
+#acTable th {
+  border: 1px solid black;
+}
+#acTable th:not(.separator-col),
+#acTable td:not(.separator-col) {
+  padding: 7px 15px;
+}
+#acTable th {
+  background: #074800;
+  font-weight: bolder;
+  color:#f8dede;
+  border-color: white;
+}
+#acTable tr:nth-child(even) {
+  background-color: #e2ffdf;
+}
+#acTable tr:nth-child(odd) {
+  background-color: #f5fff5;
+}
+#acTable tr:hover{
+  background: #b0dd90;
+/*
+  font-weight: bold;
+  font-size:93%;
+*/
+}
+.particulars-col{
+  min-width:250px;;
+}
+.ref-col {
+  max-width: 37px;
+  padding: 0px !important;
+  text-align: center;
+}

@@ -1,0 +1,32 @@
+<template name="cbAddForm">
+
+  <form id="addForm" style="border:1px solid #D1CCCC;padding:10px;">
+    <select name="isDebit" id="isDebit">
+      <option value=1>Debit</option>
+      <option value=0>Credit</option>&nbsp;&nbsp;
+    </select>
+    <select name="isCash">
+      <option value=1>Cash A/c</option>
+      <option value=0>Bank A/c</option>
+    </select>
+    <span id="toBy"> To / By </span>
+    <select name="account_id" disabled='{{#if isContraChecked}}disabled{{/if}}'>
+      {{#each accountList}}
+        <option value="{{_id}}">{{accountClass}} -> {{name}}</option>
+      {{/each}}
+    </select> A/c &nbsp;&nbsp;&nbsp;
+    <input type="checkbox" id="isContra" name="isContra" checked="{{#if isContraChecked}}checked{{/if}}"> <label for="isContra">Contra Entry?</label>
+    <br/><br/>
+    <span>Amount(Rs.): </span>
+    <input type="text" name="amount">&nbsp;&nbsp;&nbsp;
+    <span>Entry Date: </span>
+    <input type="text" name="entryDate" id="entryDate" disabled placeholder="Default: Today" value=''>
+    <span id="pickDate">Pick Date</span><br/><br/>
+    <span class="formfield">
+      <label for="narration">Narration: </label>
+      <textarea id="narration" name="narration"></textarea>&nbsp;&nbsp;&nbsp;
+    </span>
+    <input type="submit" value="+ Add Entry">
+  </form>
+
+</template>

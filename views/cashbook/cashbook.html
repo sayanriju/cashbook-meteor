@@ -1,0 +1,8 @@
+<template name="cashbook">
+  <div style="width:90%;margin:1em auto 3em;">
+  {{#if currentUser}}
+   {{> cbAddForm}}
+  {{/if}}
+  </div>
+  {{> cbTable}}
+</template>

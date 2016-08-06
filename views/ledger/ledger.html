@@ -1,0 +1,20 @@
+<template name="ledger">
+  <div style="width:90%;margin:1em auto 3em;">
+   {{> ledgerForm}}
+  </div>
+  {{> ledgerChart}}
+</template>
+
+<template name="ledgerForm">
+  <form name="ledgerForm" id="ledgerForm">
+    <label for="account_id">Select A/c to View Ledger Entries:  </label><br/>
+    <select name="account_id" disabled='{{#if isContraChecked}}disabled{{/if}}'>
+      {{#each accountList}}
+        <option value="{{_id}}">{{accountClass}} -> {{name}}</option>
+      {{/each}}
+    </select> A/c
+    <br/>
+    <br/>
+    <input type="submit" value="Show Ledger">
+  </form>
+</template>

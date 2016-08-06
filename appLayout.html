@@ -1,0 +1,18 @@
+<template name="appLayout">
+  <head>
+  <title>test</title>
+  </head>
+
+  <body>
+
+  	<div class="container">
+  		<header id="navbar">
+        <title>{{pageTitle}}</title>
+        {{> navbar}}
+      </header>
+
+  		<div>{{> yield }}</div>
+  	</div>
+
+  </body>
+</template>

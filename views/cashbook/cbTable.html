@@ -1,0 +1,83 @@
+<template name="cbTable">
+<!-- {{> spinner}} -->
+
+{{#with tableData}}
+<h2>-----{{test}}</h2>
+  <table id="cbTable" border="1" style="width:90%;margin:1em auto;">
+    <tr>
+      <th colspan="4">
+        <span style="float:left;font-style:italic;font-size:85%;">Debits</span>
+        <span style="float:right;font-size:150%;">CASH</span>
+      </th>
+      <th class="separator-col"></th>
+      <th colspan="4">
+        <span style="float:left;font-size:150%;">BOOK</span>
+        <span style="float:right;font-style:italic;font-size:85%;">Credits</span>
+      </th>
+    </tr>
+    <tr style="color:#034e03;">
+      <th class="date-col">Date</th>
+      <th class="particulars-col">Particulars</th>
+      <th class="amounts-col">Cash (₹)</th>
+      <th class="amounts-col">Bank (₹)</th>
+      <th class="separator-col"></th>
+      <th class="date-col">Date</th>
+      <th class="particulars-col">Particulars</th>
+      <th class="amounts-col">Cash (₹)</th>
+      <th class="amounts-col">Bank (₹)</th>
+    </tr>
+
+    {{#each trows}}
+      <tr>
+        {{> trowTemplate}}
+      </tr>
+    {{/each}}
+
+    <tr>
+      <th class="date-col"> </th>
+      <th class="particulars-col"> </th>
+      <th class="amounts-col">{{colTotals.debit.cash}}</th>
+      <th class="amounts-col">{{colTotals.debit.bank}}</th>
+      <th class="separator-col"></th>
+      <th class="date-col"> </th>
+      <th class="particulars-col"> </th>
+      <th class="amounts-col">{{colTotals.credit.cash}}</th>
+      <th class="amounts-col">{{colTotals.credit.bank}}</th>
+    </tr>
+
+  </table>
+
+  <p style="text-align:center; margin:0.25em auto;padding:5px;background:#BDF9B7;font-weight:bold;">{{> cbBalance}}</p>
+
+{{/with}}
+</template>
+
+<template name="trowTemplate">
+  <td>{{debit.entryDate}}</td>
+  <td>
+    {{#if debit.account}}<i>To&nbsp;</i>{{/if}} <b>{{debit.account}}</b>
+    {{#if debit.account}}<i>&nbsp;A/c</i>{{/if}}
+    {{#if debit.contra}}<b class="contra-label" style="">CONTRA</b>{{/if}}
+    {{#if debit.narration}}<br/><span class="small">({{debit.narration}})</span>{{/if}}
+  </td>
+  <td>{{debit.amount.cash}}</td>
+  <td>{{debit.amount.bank}}</td>
+
+  <td class="separator-col"></td>
+
+  <td>{{credit.entryDate}}</td>
+  <td>
+    {{#if credit.account}}<i>By&nbsp;</i>{{/if}}<b>{{credit.account}}</b>
+    {{#if credit.account}}<i>&nbsp;A/c</i>{{/if}}
+    {{#if credit.contra}}<b class="contra-label" style="">CONTRA</b>{{/if}}
+    {{#if credit.narration}}<br/><span class="small">({{credit.narration}})</span>{{/if}}
+  </td>
+  <td>{{credit.amount.cash}}</td>
+  <td>{{credit.amount.bank}}</td>
+</template>
+
+<template name="cbBalance">
+Cash A/c Balance (₹): <span class="big">{{balance.cash.amount}}</span> {{#if balance.cash.isDebit}}<i>Dr.</i>{{else}}<i>Cr.</i>{{/if}}
+<br/><br/>
+Bank A/c Balance (₹): <span class="big">{{balance.bank.amount}}</span> {{#if balance.bank.isDebit}}<i>Dr.</i>{{else}}<i>Cr.</i>{{/if}}
+</template>

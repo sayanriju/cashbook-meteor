@@ -1,0 +1,24 @@
+<template name="acTable">
+  <table id="acTable">
+    <tr>
+      <th>Account Name</th>
+      <th>Account Type/Class</th>
+      <th>Description</th>
+    </tr>
+
+
+    {{#each accountRows}}
+    <tr>
+      <td>{{name}}</td>
+      <td>{{accountClass}}</td>
+      <td>{{description}}</td>
+    </tr>
+    {{/each}}
+  </table>
+</template>
+
+<template name="acRowTemplate">
+  <td>{{name}}</td>
+  <td>{{accountClass}}</td>
+  <td>{{description}}</td>
+</template>

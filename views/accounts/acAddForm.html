@@ -1,0 +1,25 @@
+<template name="acAddForm">
+<!-- {{#if currentUser}} -->
+
+  <form id="acAddForm" style="border:1px solid #D1CCCC;padding:10px;">
+    <label for="accountClass">Account Type: </label>
+    <select name="accountClass" id="accountClass">
+      <option value="Asset">Assets</option>
+      <option value="Liability">Liabilities</option>
+      <option value="Equity">Equity</option>
+      <option value="Revenue">Revenue</option>
+      <option value="Expense">Expenses</option>
+    </select>
+
+    <label for="name">Account Name: </label>
+    <input type="text" name="name">
+
+    <span class="formfield">
+      <label for="description">Description: </label>
+      <textarea  name="description"></textarea>&nbsp;&nbsp;&nbsp;
+      <input type="submit" value="+ Add Account">
+    </span>
+  </form>
+
+<!-- {{/if}} -->
+</template>
